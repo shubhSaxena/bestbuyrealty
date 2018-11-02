@@ -8,10 +8,10 @@ var dirPath = require('path');
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
-
+var port = process.env.PORT || 3000;
 
 // local server started at http://localhost:3000
-app.listen(3000, (err) => { console.log('connected!!') });
+app.listen(port, (err) => { console.log('connected!!') });
 
 
 
