@@ -1,0 +1,14 @@
+{
+  "name": "DemoSite",
+  "version": "1.0.0",
+  "description": "DemoSite",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Shubham Saxena",
+  "dependencies": {
+    "express": "^4.16.4",
+    "ejs": "^2.6.1"
+  }
+}
