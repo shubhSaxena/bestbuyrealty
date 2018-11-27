@@ -1,7 +1,7 @@
 {
-  "name": "DemoSite",
+  "name": "BestBuyRealty",
   "version": "1.0.0",
-  "description": "DemoSite",
+  "description": "BestBuyRealty",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
