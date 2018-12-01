@@ -16,8 +16,8 @@
     background-color: aliceblue;
 }
 
-.alert.hide{
-  display: none;
+.alert{
+  display: none; 
 }
 .alert.show{
   display: block;

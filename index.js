@@ -28,21 +28,10 @@ app.get('/', function (req, res) {
 })
 
 app.post('/contact', function (req, res) {
-  console.log("request body")
-  console.log(req.body)
-  var first_name = req.body.first_name;
-  var last_name = req.body.last_name;
-  var phone = req.body.phone;
-  var email = req.body.email;
-  var message = req.body.message;
-
-  console.log("first name = " + first_name);
-  console.log("last name = " + last_name);
-  console.log("phone = " + phone);
-  console.log("email = " + email);
-  console.log("message = " + message);
+  // console.log("request body")
+  // console.log(req.body)
   var data = insertData(req.body);
-  console.log("data -- ", data)
+  // console.log("data -- ", data)
   res.status(200).end("ok");
 })
 
