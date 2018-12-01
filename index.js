@@ -4,10 +4,7 @@ const app = express();
 const dirPath = require('path');
 const pg = require('pg');
 const bodyParser = require("body-parser");
-
-var pgp = require('pg-promise')
-var db = pgp(process.env.DATABASE_URL)
-
+const config = require('./config');
 pg.defaults.ssl = true;
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -54,13 +51,30 @@ app.post('/contact', function (req, res) {
 })
 
 function insertData(data) {
-  db.one('INSERT INTO contact_form(first_name, last_name, phone, email, message) VALUES($1, $2, $3, $4, $5) RETURNING id', [data.first_name, data.last_name, data.phone, data.email, data.message])
-    .then(data => {
-      console.log(data.id); // print new user id;
-      return true;
-    })
-    .catch(error => {
-      console.log('ERROR:', error); // print error;
-      return false;
-    });
+  var flag = false;
+  var pool = new pg.Pool(config.PG_CONFIG);
+  pool.connect(function (err, client, done) {
+    if (err) {
+      return console.error('Error acquiring client', err.stack);
+    }
+    var rows = [];
+    let sql = 'INSERT INTO contact_form(first_name, last_name, phone, email, message) VALUES($1, $2, $3, $4, $5)';
+    client.query(sql,
+      [
+        data.first_name,
+        data.last_name,
+        data.phone,
+        data.email,
+        data.message
+      ], function (err, result) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(result.rows[0]);
+          flag = true;
+        };
+      });
+  });
+  pool.end();
+  return flag;
 }
