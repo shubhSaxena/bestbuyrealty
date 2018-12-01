@@ -4,3 +4,14 @@
   font-weight: 400;
   color: lightcyan;
 }
+.card-header {
+  font-size: large;
+}
+.middle {
+  margin-right: 50px !important;
+  margin-left: 50px !important;
+}
+
+.card-color {
+    background-color: aliceblue;
+}
