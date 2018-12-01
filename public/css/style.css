@@ -15,3 +15,10 @@
 .card-color {
     background-color: aliceblue;
 }
+
+.alert.hide{
+  display: none;
+}
+.alert.show{
+  display: block;
+}

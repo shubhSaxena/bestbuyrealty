@@ -8,8 +8,10 @@
   },
   "author": "Shubham Saxena",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "pg": "^7.7.1"
+    "pg": "^7.7.1",
+    "pg-promise": "^8.5.3"
   }
 }
