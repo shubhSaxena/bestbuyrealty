@@ -1,9 +1,7 @@
 $(document).ready(function () {
   var first_name, last_name, phone, email, message;
   $("#contact_form").submit(function () {
-    alert("Handler for .submit() called.");
     event.preventDefault();
-    console.log("click")
     first_name = $("#first_name").val();
     last_name = $("#last_name").val();
     phone = $("#phone").val();
@@ -14,7 +12,8 @@ $(document).ready(function () {
         if (data === 'ok' && status == "success") {
           console.log("ok success");
           $("#success-popup").addClass('show');
-          setTimeout(function () { $("#success-popup").addClass('hide') }, 1000)
+          setTimeout(function () { $("#success-popup").addClass('hide'); }, 1000);
+          document.getElementById("contact_form").reset();
         }
       });
   });

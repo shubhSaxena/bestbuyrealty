@@ -43,11 +43,7 @@ app.post('/contact', function (req, res) {
   console.log("message = " + message);
   var data = insertData(req.body);
   console.log("data -- ", data)
-  if (data) {
-    res.status(200).end("ok");
-  } else {
-    res.status(200).end("error");
-  }
+  res.status(200).end("ok");
 })
 
 function insertData(data) {
